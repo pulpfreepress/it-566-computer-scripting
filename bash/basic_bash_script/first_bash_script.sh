@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # This is a comment
-# All characters from to the right of the # are ignored
+# All characters to the right of the # are ignored
 #: This is also a comment, but the colon helps if you need
 #: to search for special types of comments. The character
 #: you use is up to you...
@@ -16,7 +16,7 @@
 # Global Constants
 declare -r DEFAULT_MESSAGE="Hello, World!"
 
-# Variables 
+# Global Variables 
 declare _message=${DEFAULT_MESSAGE} # _message variable not used in script
 
 
@@ -31,14 +31,11 @@ display_usage() {
 }
 
 print_message() {
-
  	printf "%s " $@
 }
 
 
 process_arguments() {
-
-
 	case $1 in
 		-help) # If first argument is '-help' call display_usage
 			display_usage 
@@ -51,7 +48,6 @@ process_arguments() {
 
 
 main(){
-
 	# If no arguments call print_message() with value of DEFAULT_MESSAGE
 	if [ "$#" -lt 1 ]; 
 	then
