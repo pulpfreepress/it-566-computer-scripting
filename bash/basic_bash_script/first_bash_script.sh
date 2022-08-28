@@ -25,7 +25,7 @@ display_usage() {
 	echo "-----------------------------------------"
 	echo " Usage: `basename $0` [ -help | message | no argument ] "
 	echo 
-	echo " Examples: ./first_bash_script.sh help     # Show this usage mesage "
+	echo " Examples: ./first_bash_script.sh -help    # Show this usage mesage "
 	echo "           ./first_bash_script.sh message  # Print the message to the screen "
 	echo "           ./first_bash_script.sh          # Print default message "
 }
