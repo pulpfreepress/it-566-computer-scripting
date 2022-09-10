@@ -8,7 +8,9 @@
 #: Options      : None
 
 # Global Constants
-declare -r TOOLS="aws git python pipenv sometoolnotinstalled"
+# TOOLS: A list of required tools. Edit as required. Sometoolnotinstalled to 
+#        show what a missing tool message looks like. 
+declare -r TOOLS="aws git python3 pipenv sometoolnotinstalled"
 
 # Global Variables 
 declare _confirm=1
@@ -28,13 +30,14 @@ display_usage() {
 	echo "-----------------------------------------"
 	echo " Usage: ./`basename $0` [ -help | message | no argument ] "
 	echo 
-	echo " Examples: ./`basename $0` -help.         # Show this usage mesage "
-	echo "           ./`basename $0` -checktools    # Check for required tools "
-	echo "           ./`basename $0`                # Execute default action "
+	echo " Examples: ./`basename $0` -checktools    # Show this usage message "
+	echo "           ./`basename $0` -help.         # Check for required tools "
+	echo "           ./`basename $0`                # Default: -checktools and -help "
 }
 
 default_action() {
- 	printf "%s " $@
+ 	check_tools
+ 	display_usage
 }
 
 
