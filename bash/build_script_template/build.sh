@@ -28,7 +28,7 @@ check_tools() { 	## Check if required tools are installed
 display_usage() {
 	echo
 	echo "-----------------------------------------"
-	echo " Usage: ./`basename $0` [ -help | message | no argument ] "
+	echo " Usage: ./`basename $0` [ -help | -checktools | no argument ] "
 	echo 
 	echo " Examples: ./`basename $0` -checktools    # Show this usage message "
 	echo "           ./`basename $0` -help.         # Check for required tools "
