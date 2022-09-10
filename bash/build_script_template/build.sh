@@ -18,7 +18,7 @@ check_tools() { 	## Check if required tools are installed
 	echo "Checking for required tools..."
 	for tool in $TOOLS
 	do
-		type $tool &> /dev/null && ([ $_confirm -eq 1 ] && echo "$tool: OK" || true) || (echo "$tool: MISSING"; exit 1);
+		command -v $tool &> /dev/null && ([ $_confirm -eq 1 ] && echo "$tool: OK" || true) || (echo "$tool: MISSING"; exit 1);
 	done
 }
 
