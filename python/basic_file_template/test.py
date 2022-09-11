@@ -2,6 +2,7 @@
 	Project:	Project Name
 	Date:		Date
 '''
+# This is also a comment
 
 import string
 
@@ -12,6 +13,7 @@ import string
 '''
 def main(message='Hello, World!'):
 	print(message)
+	print(string.ascii_letters)
 
 	s = ''
 	while s != 'q':
