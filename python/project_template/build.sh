@@ -30,8 +30,8 @@ display_usage() {
 	echo "-----------------------------------------"
 	echo " Usage: ./`basename $0` [ -help | -checktools | no argument ] "
 	echo 
-	echo " Examples: ./`basename $0` -checktools    # Show this usage message "
-	echo "           ./`basename $0` -help.         # Check for required tools "
+	echo " Examples: ./`basename $0` --checktools    # Show this usage message "
+	echo "           ./`basename $0` --help.         # Check for required tools "
 	echo "           ./`basename $0`                # Default: -checktools and -help "
 }
 
@@ -40,15 +40,39 @@ default_action() {
  	display_usage
 }
 
+runtests() {
+	pipenv run pytest
+}
+
+runmain() {
+	pipenv run python3 src/example.py
+}
+
+install() {
+	pipenv install
+}
+
 
 process_arguments() {
 	case $1 in
-		-help) # If first argument is '-help' call display_usage
+		--help) # If first argument is '-help' call display_usage
 			display_usage 
 			;;
 
-		-checktools) # Verify required development tools are installed
+		--checktools) # Verify required development tools are installed
 			check_tools
+			;;
+
+		runtests) # Run all tests in virtual environment
+			runtests
+			;;
+
+		runmain) # Run main program
+			runmain
+			;;
+
+		install) # Install packages listed in Pipfile
+			install
 			;;
 
 		*) 	# Otherwise, call default_action with all arguments	
