@@ -6,3 +6,6 @@ Example repository for IT-566: Computer Scripting Techniques
 ### Subtitle
 
 'Code Example'
+
+**bold**
+
