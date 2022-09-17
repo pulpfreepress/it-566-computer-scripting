@@ -1,11 +1,14 @@
 # it-566-computer-scripting
-Example repository for IT-566: Computer Scripting Techniques
+```
+Example repository for IT-566: Computer Scripting Techniques 
+Marymount University
+Balston Center, Arlington, VA
+Fall 2022
 
-## This is a subtitle
+```
 
-### Subtitle
-
-'Code Example'
-
-**bold bold bold**
+## Contents
+- Presentations
+- Example Bash scripts
+- Example Python programs
 
