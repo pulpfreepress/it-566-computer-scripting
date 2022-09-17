@@ -28,11 +28,14 @@ check_tools() { 	## Check if required tools are installed
 display_usage() {
 	echo
 	echo "-----------------------------------------"
-	echo " Usage: ./`basename $0` [ -help | -checktools | no argument ] "
+	echo " Usage: ./`basename $0` [ --help | --checktools | no argument | --install | --runmain | --runtests ] "
 	echo 
-	echo " Examples: ./`basename $0` --checktools    # Show this usage message "
-	echo "           ./`basename $0` --help.         # Check for required tools "
+	echo " Examples: ./`basename $0` --checktools   # Show this usage message "
+	echo "           ./`basename $0` --help         # Check for required tools "
 	echo "           ./`basename $0`                # Default: -checktools and -help "
+	echo "           ./`basename $0` --install      # pipenv install "
+	echo "           ./`basename $0` --runmain      # pipenv run python3 src/main.py "
+	echo "           ./`basename $0` --runtests     # pipevn run pytest "
 }
 
 default_action() {
@@ -45,7 +48,7 @@ runtests() {
 }
 
 runmain() {
-	pipenv run python3 src/example.py
+	pipenv run python3 src/main.py
 }
 
 install() {
@@ -63,15 +66,15 @@ process_arguments() {
 			check_tools
 			;;
 
-		runtests) # Run all tests in virtual environment
+		--runtests) # Run all tests in virtual environment
 			runtests
 			;;
 
-		runmain) # Run main program
+		--runmain) # Run main program
 			runmain
 			;;
 
-		install) # Install packages listed in Pipfile
+		--install) # Install packages listed in Pipfile
 			install
 			;;
 

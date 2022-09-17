@@ -23,13 +23,16 @@ class Example:
 		return arg_a + arg_b
 
 
+	def iter_demo(self):
+		message = 'A string of letters is also a list of chars...'
+		for s in message:
+			print(f'{s} ', end="")
+		print()
+
+
+	def lambda_demo(self):
+		print(f'{list(map(lambda x: x + x , [1,2,3,4,5] ))} ', end="")
 
 
 
-def main():
-	example = Example()
-	print(f'Count = { example.get_count() }')
-
-if __name__ == '__main__':
-	main()
 
