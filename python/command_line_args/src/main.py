@@ -6,7 +6,7 @@ line argument processing in unit tests.
 """
 import sys
 import argparse
-from example import Example
+#from example import Example
 
 
 
@@ -28,7 +28,7 @@ def parse_args(args):
 
 def main(cmd_line_args):
 	"""Execute when it's the main execution module."""
-	example = Example()
+	#example = Example()
 	args = parse_args(cmd_line_args)
 	print(args.accumulate(args.integers))
 
