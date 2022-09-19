@@ -55,5 +55,18 @@ class Example:
 		print(f'{list(map(lambda x: x + x , [1,2,3,4,5] ))} ', end="")
 
 
+	def list_operations(self):
+		"""Demonstrate operations on lists."""
+		print(f'{min([1,2,3,4,5])}')
+		print(f'{1 in [1,2,3,4,5]}')
+		list_of_ints = [1,2,3,4,5]
+		list_of_ints.append(6)
+		print(f'{6 in list_of_ints}')
+		print(f'{len(list_of_ints)}')
+		print(f'{[1,2,3,4,5,6][0]}')
+		print(f'{"Hello, World!"[0]}')
+
+
+
 
 
