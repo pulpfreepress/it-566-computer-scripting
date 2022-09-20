@@ -30,12 +30,13 @@ display_usage() {
 	echo "-----------------------------------------"
 	echo " Usage: ./`basename $0` [ --help | --checktools | no argument | --install | --runmain | --runtests ] "
 	echo 
-	echo " Examples: ./`basename $0` --checktools   # Show this usage message "
-	echo "           ./`basename $0` --help         # Check for required tools "
-	echo "           ./`basename $0`                # Default: -checktools and -help "
-	echo "           ./`basename $0` --install      # pipenv install "
-	echo "           ./`basename $0` --runmain      # pipenv run python3 src/main.py "
-	echo "           ./`basename $0` --runtests     # pipevn run pytest "
+	echo " Examples: ./`basename $0` --checktools   		# Show this usage message "
+	echo "           ./`basename $0` --help         		# Check for required tools "
+	echo "           ./`basename $0`                		# Default: -checktools and -help "
+	echo "           ./`basename $0` --install      		# pipenv install "
+	echo "           ./`basename $0` --runmain      		# pipenv run python3 src/main.py "
+	echo "           ./`basename $0` --runtests     		# pipevn run pytest "
+	echo "           ./`basename $0` --checkdoccomments	# pipevn run pydocstyle src/ "
 }
 
 default_action() {
@@ -53,6 +54,10 @@ runmain() {
 
 install() {
 	pipenv install
+}
+
+check_doc_comments() {
+	pipenv run pydocstyle src/
 }
 
 
@@ -76,6 +81,10 @@ process_arguments() {
 
 		--install) # Install packages listed in Pipfile
 			install
+			;;
+
+		--checkdoccomments) # Run pydocstyle to check doc comments 
+			check_doc_comments
 			;;
 
 		*) 	# Otherwise, call default_action with all arguments	

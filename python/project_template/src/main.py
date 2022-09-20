@@ -1,11 +1,10 @@
-# Explicit main execution module
+"""Explicit main execution module."""
 
 from example import Example
 
-'''
-main() function
-'''
+
 def main():
+	"""Execute main program."""
 	example = Example()
 	print(f'Count = { example.get_count() }')
 	example.iter_demo()
