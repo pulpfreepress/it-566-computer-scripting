@@ -1,30 +1,22 @@
-# Command-Line Argument Processing
+# Home Inventory Application Framework
 
-Demonstrates how to process command line arguments using the argparse module. 
+Implements a reference application you can use for inspiration. 
 
-## Architecture
-- Two modules: 
-```
-src/example.py
-src/main.py
-```
+The application displays a sample menu from which users make a selection. The application processes user's menu choice and calls a corresponding method, which is stubbed out, or exits the application when the user enters 7 by setting the `self.keep_going` to `False`.
 
-## Operation
-- `./build.sh --runmain`  Runs the program
-- I pass the arguments to the program in the bash script's runmain() method. 
+## General Instructions
+Clone the containing repo into a local folder of your choice on your machine:
 
+`git@github.com:pulpfreepress/it-566-computer-scripting.git`
 
-## Modifications
-If you want to experiment with different arguments you can do several things.
-- Modify the arguments in the bash script's runmain() method, or
-- Modify the bash script to pass the arguments from the command line to the runmain() method, or
-- You can run the python program directly from the command line with pipenv like so: `pipenv run python3 src/main.py [arguments]`
+Run `./build.sh` to check for required tools and display a list of commands.
 
-## Unit Tests
-The main module contains a separate parse_args() method to facilitate testing. Refer to the tests/test_main.py file.
+Run `./build.sh --install` to install Pipfile packages.
 
-## References
-Solution to enable testing command line arguments came from Stack Overflow: https://stackoverflow.com/questions/18160078/how-do-you-write-tests-for-the-argparse-portion-of-a-python-module
+**NOTE:** If you're running Windows, you'll need to edit the `build.sh` script, locate the `runmain()` method and change `python3` to `python`.
 
-Code for argparse demo came straight from the Python docs: https://docs.python.org/3/library/argparse.html
+Run `./build.sh --runmain` to run the Home Inventory Application. 
+
+Feel free to use this as the basis of your application if you're having trouble getting started. 
+
 
