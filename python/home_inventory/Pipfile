@@ -6,8 +6,8 @@ name = "pypi"
 [packages]
 
 [dev-packages]
-pytest = "*"
 pydocstyle = "*"
+pytest = "*"
 
 [requires]
 python_version = "3.10"

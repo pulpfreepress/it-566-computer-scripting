@@ -1,5 +1,7 @@
 """Implements household inventory control features."""
 
+from home_inventory import HomeInventory
+
 class InventoryApp():
 	"""Implements household inventory control features."""
 
@@ -9,10 +11,13 @@ class InventoryApp():
 		self.NEW_INVENTORY='1'
 		self.LOAD_INVENTORY='2'
 		self.LIST_INVENTORY='3'
+		self.ADD_ITEMS='4'
+		self.SAVE_INVENTORY='5'
 		self.EXIT='7'
 		# Fields
 		self.menu_choice = 1
 		self.keep_going = True
+		self.home_inventory = HomeInventory()
 		pass
 
 	def display_menu(self):
@@ -22,6 +27,8 @@ class InventoryApp():
 		print('\t\t1. New Inventory')
 		print('\t\t2. Load Inventory')
 		print('\t\t3. List Inventory')
+		print('\t\t4. Add Items')
+		print('\t\t5. Save Inventory')
 		print('\t\t7. Exit')
 		print()
 
@@ -36,6 +43,10 @@ class InventoryApp():
 				self.load_inventory()
 			case self.LIST_INVENTORY:
 				self.list_inventory()
+			case self.ADD_ITEMS:
+				self.add_items()
+			case self.SAVE_INVENTORY:
+				self.save_inventory()
 			case self.EXIT:
 				print('Goodbye!')
 				self.keep_going = False
@@ -43,8 +54,9 @@ class InventoryApp():
 				print('Invalid Menu Choice!')
 
 	def new_inventory(self):
-		"""Create new inventory."""
+		"""Create new inventory."""		
 		print('new_inventory() method called...')
+		self.home_inventory.new_inventory()
 
 	def load_inventory(self):
 		"""Load inventory from file."""
@@ -53,6 +65,20 @@ class InventoryApp():
 	def list_inventory(self):
 		"""List inventory."""
 		print('list_inventory() method called...')
+
+	def save_inventory(self):
+		"""Save inventory to file."""
+		self.home_inventory.save_inventory()
+
+	def add_items(self):
+		"""Add items to inventory."""
+		keep_going = 'y'
+		while keep_going[0] == 'y':
+			item_name = input('Item Name: ')
+			item_count = input('Item Count: ')
+			self.home_inventory.add_item(item_name, item_count)
+			keep_going = input('Add another? (y/n): ')
+
 
 	def start_application(self):
 		"""Start the applications."""
