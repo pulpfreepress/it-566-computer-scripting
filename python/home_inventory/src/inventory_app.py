@@ -34,7 +34,7 @@ class InventoryApp():
 
 	def process_menu_choice(self):
 		"""Process menu choice and execute corrensponding methods."""
-		self.menu_choice = input('Please enter menu item number:')
+		self.menu_choice = input('Please enter menu item number: ')
 		print(f'You entered: {self.menu_choice}')
 		match self.menu_choice:
 			case self.NEW_INVENTORY:
@@ -61,10 +61,12 @@ class InventoryApp():
 	def load_inventory(self):
 		"""Load inventory from file."""
 		print('load_inventory() method called...')
+		self.home_inventory.load_inventory()
 
 	def list_inventory(self):
 		"""List inventory."""
 		print('list_inventory() method called...')
+		self.home_inventory.list_inventory()
 
 	def save_inventory(self):
 		"""Save inventory to file."""

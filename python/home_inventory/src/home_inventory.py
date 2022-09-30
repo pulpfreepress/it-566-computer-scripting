@@ -1,9 +1,7 @@
 """Implements Home Inventory data structures and operations."""
 
-from contextlib import nullcontext
-import sys
-import string
 import json
+from datetime import date
 
 
 
@@ -12,13 +10,12 @@ class HomeInventory():
 
     def __init__(self):
         """Initialize Home Inventory object."""
-        self.dictionary = None
-
-
-
+        self.dictionary = {} # Initialize to empty dictionary
+        self._initialize_home_inventory_dictionary()
+        
     def new_inventory(self):
         """Initialize new dictionary to store inventory data."""
-        if self.dictionary != None:
+        if (self.dictionary != None) and (bool(self.dictionary)):
             user_input = input("Safe current inventory? (y/n): ")
             match user_input.lower():
                 case 'y':
@@ -34,6 +31,12 @@ class HomeInventory():
     def load_inventory(self):
         """Load inventory from file."""
         print('load_inventory() method called...')
+        try:
+            file_path = self._get_file_path()
+            with open(file_path, 'r', encoding='UTF-8') as f:
+                self.dictionary = json.loads(f.read())
+        except OSError:
+            print('Problem loading file. Please try again.')
 
     def save_inventory(self):
         """Save inventory to file."""
@@ -45,11 +48,18 @@ class HomeInventory():
 
     def add_item(self, item_name, item_count):
         assert self.dictionary != None
-        self.dictionary[item_name] = item_count
+        self.dictionary['items'].append({'item': item_name, 'count': int(item_count)})
 
     def list_inventory(self):
         """List inventory to console."""
         print('list_inventory() method called..')
+        for key, value in self.dictionary.items():
+            if key == 'items':
+                print('items:')
+                for item in value:
+                    print(f'\t {item["item"]:10} \t {item["count"]}')
+            else:
+                print(f'{key}: \t {value}')
 
     def _get_file_path(self):
         """Get flle path from user."""
@@ -63,6 +73,9 @@ class HomeInventory():
     def _initialize_home_inventory_dictionary(self):
         print("Initializing new Home Inventory...")
         self.dictionary = {}
+        self.dictionary['type'] = 'Home Inventory'
+        self.dictionary['date'] = date.today().isoformat()
+        self.dictionary['items'] = []
         print("New Home Inventory Initialized")
 
 
