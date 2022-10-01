@@ -1,6 +1,8 @@
 """Implements household inventory control features."""
 
 from home_inventory import HomeInventory
+from subprocess import call
+import os
 
 class InventoryApp():
 	"""Implements household inventory control features."""
@@ -20,6 +22,10 @@ class InventoryApp():
 		self.home_inventory = HomeInventory()
 		pass
 
+	def clear_screen(self):
+		_ = call('clear' if os.name == 'posix' else 'cls')
+
+
 	def display_menu(self):
 		"""Display menu."""
 		print('\t\t\tHousehold Inventory Application')
@@ -35,7 +41,8 @@ class InventoryApp():
 	def process_menu_choice(self):
 		"""Process menu choice and execute corrensponding methods."""
 		self.menu_choice = input('Please enter menu item number: ')
-		print(f'You entered: {self.menu_choice}')
+		if __debug__: 
+			print(f'You entered: {self.menu_choice}')
 		match self.menu_choice:
 			case self.NEW_INVENTORY:
 				self.new_inventory()
@@ -48,25 +55,33 @@ class InventoryApp():
 			case self.SAVE_INVENTORY:
 				self.save_inventory()
 			case self.EXIT:
-				print('Goodbye!')
+				if __debug__:
+					print('Goodbye!')
 				self.keep_going = False
+				self.clear_screen
 			case _:
 				print('Invalid Menu Choice!')
 
 	def new_inventory(self):
 		"""Create new inventory."""		
-		print('new_inventory() method called...')
+		if __debug__:
+			print('new_inventory() method called...')
 		self.home_inventory.new_inventory()
 
 	def load_inventory(self):
 		"""Load inventory from file."""
-		print('load_inventory() method called...')
+		if __debug__:
+			print('load_inventory() method called...')
 		self.home_inventory.load_inventory()
 
 	def list_inventory(self):
 		"""List inventory."""
-		print('list_inventory() method called...')
+		if __debug__:
+			print('list_inventory() method called...')
+		self.clear_screen()
 		self.home_inventory.list_inventory()
+		input('Press any key to continue... ')
+		self.clear_screen()
 
 	def save_inventory(self):
 		"""Save inventory to file."""
@@ -84,6 +99,8 @@ class InventoryApp():
 
 	def start_application(self):
 		"""Start the applications."""
+		# Clear Screen
+		self.clear_screen()
 		while self.keep_going:
 			self.display_menu()
 			self.process_menu_choice()

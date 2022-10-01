@@ -3,8 +3,6 @@
 import json
 from datetime import date
 
-
-
 class HomeInventory():
     """Implements Home Inventory data structures and operations."""
 
@@ -30,7 +28,8 @@ class HomeInventory():
 
     def load_inventory(self):
         """Load inventory from file."""
-        print('load_inventory() method called...')
+        if __debug__:
+            print('load_inventory() method called...')
         try:
             file_path = self._get_file_path()
             with open(file_path, 'r', encoding='UTF-8') as f:
@@ -40,7 +39,8 @@ class HomeInventory():
 
     def save_inventory(self):
         """Save inventory to file."""
-        print('save_inventory() method called...')
+        if __debug__:
+            print('save_inventory() method called...')
         if self.dictionary != None:
             file_path = self._get_file_path()
             with open(file_path, 'w', encoding='UTF-8') as f:
@@ -52,7 +52,8 @@ class HomeInventory():
 
     def list_inventory(self):
         """List inventory to console."""
-        print('list_inventory() method called..')
+        if __debug__:
+            print('list_inventory() method called..')
         for key, value in self.dictionary.items():
             if key == 'items':
                 print('items:')
@@ -68,15 +69,18 @@ class HomeInventory():
 
     def _list_inventory_files(self):
         """List all files in directory with _inventory.json file suffix."""
-        print('_list_inventory_files() method called...')
+        if __debug__:
+            print('_list_inventory_files() method called...')
 
     def _initialize_home_inventory_dictionary(self):
-        print("Initializing new Home Inventory...")
+        if __debug__:
+            print("Initializing new Home Inventory...")
         self.dictionary = {}
         self.dictionary['type'] = 'Home Inventory'
         self.dictionary['date'] = date.today().isoformat()
         self.dictionary['items'] = []
-        print("New Home Inventory Initialized")
+        if __debug__:
+            print("New Home Inventory Initialized")
 
 
 

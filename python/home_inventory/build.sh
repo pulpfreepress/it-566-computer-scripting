@@ -49,7 +49,7 @@ runtests() {
 }
 
 runmain() {
-	pipenv run python3 src/main.py
+	pipenv run python3 -O src/main.py
 }
 
 install() {
