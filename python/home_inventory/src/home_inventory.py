@@ -8,7 +8,6 @@ class HomeInventory():
 
     def __init__(self):
         """Initialize Home Inventory object."""
-        self.dictionary = {} # Initialize to empty dictionary
         self._initialize_home_inventory_dictionary()
         
     def new_inventory(self):
