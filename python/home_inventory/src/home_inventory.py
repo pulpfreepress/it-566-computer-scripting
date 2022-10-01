@@ -57,7 +57,7 @@ class HomeInventory():
             if key == 'items':
                 print('items:')
                 for item in value:
-                    print(f'\t {item["item"]:10} \t {item["count"]}')
+                    print(f'\t {item["item"]:15} \t {item["count"]}')
             else:
                 print(f'{key}: \t {value}')
 
@@ -65,11 +65,6 @@ class HomeInventory():
         """Get flle path from user."""
         f_path = input("Please enter path and filename: ")
         return f_path
-
-    def _list_inventory_files(self):
-        """List all files in directory with _inventory.json file suffix."""
-        if __debug__:
-            print('_list_inventory_files() method called...')
 
     def _initialize_home_inventory_dictionary(self):
         if __debug__:
