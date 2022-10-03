@@ -1,5 +1,9 @@
 # Project Template
-Provides a suggested multifile project organization suitable for IT 566 and a wide range of professional python projects. 
+Builds on the standard project template and adds tkinter as the windowing framework
+
+## Notes
+The default python 3 installation on MacOS does not come with tkinter. Install it with brew: `brew install python-tk`
+
 
 ## Assumptions
 - Python 3.10.6+ is installed
