@@ -1,6 +1,15 @@
 # Project Template
 Provides a suggested multifile project organization suitable for IT 566 and a wide range of professional python projects. 
 
+## Notes
+- This project inserts an item into a MySQL database named `home_inventory`
+- This project then queries the `home_inventory` database and displays the results.
+- You should have MySQL installed. Take note of the port on which the MySQL server is running. This example assumes port 8889 which is the default MAMP MySQL service port.
+- You must be able to run the `mysql` command from the terminal. To do this, set your PATH to the directory where the mysql command is located.
+- Launch phpMyAdmin and create a database user that matches your computer user account name. Example, if your Windows username is Steve, create a database user named Steve with full database permissions. 
+- Create the `home_inventory` database by running: `./build.sh --initialize_database`
+- No passwords are used. If you do create a database account that requires a password, be sure **NOT** to commit it to your repository.
+
 ## Assumptions
 - Python 3.10.6+ is installed
 - Python source code is stored in src directory
