@@ -35,8 +35,9 @@ display_usage() {
 	echo "           ./`basename $0`                		# Default: -checktools and -help "
 	echo "           ./`basename $0` --install      		# pipenv install "
 	echo "           ./`basename $0` --runmain      		# pipenv run python3 src/main.py "
-	echo "           ./`basename $0` --runtests     		# pipevn run pytest "
+	echo "           ./`basename $0` --runtests     		# pipenv run pytest "
 	echo "           ./`basename $0` --checkdoccomments	# pipevn run pydocstyle src/ "
+	echo "           ./`basename $0` --initialize_database	# source database/initialize_database.sh "
 }
 
 default_action() {
@@ -58,6 +59,12 @@ install() {
 
 check_doc_comments() {
 	pipenv run pydocstyle src/
+}
+
+initialize_database() {
+	cd database
+	source initialize_database.sh
+	cd ..
 }
 
 
@@ -85,6 +92,10 @@ process_arguments() {
 
 		--checkdoccomments) # Run pydocstyle to check doc comments 
 			check_doc_comments
+			;;
+
+		--initialize_database) # Initialize the database: drop and recreate
+			initialize_database
 			;;
 
 		*) 	# Otherwise, call default_action with all arguments	

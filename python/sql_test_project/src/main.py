@@ -6,9 +6,13 @@ from sql_test import SqlTest
 
 def main():
 	"""Execute main program."""
-	password = getpass('Enter DB Password: ')
+	#password = getpass('Enter DB Password: ')
+	password = None
 	db_test = SqlTest('localhost', 8889, 'home_inventory', 'home_inventory_user', password)
-	db_test.insert_item('Truck', 1)
+	item = input("Item name: ")
+	count = input("Item count: ")
+	db_test.insert_item(item, int(count))
+	print(db_test.query_all())
 
 
 # Call main() if this is the main execution module
