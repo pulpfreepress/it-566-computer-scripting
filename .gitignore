@@ -1,6 +1,6 @@
 # MacOS Junk Files
 .DS_Store
-
+temp/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
