@@ -50,11 +50,11 @@ runtests() {
 }
 
 runmain() {
-    if [[ "$OSTYPE" == "linux-gnu"*  ]]; then
+    if [[ "$OSTYPE" == "linux-gnu"*  ]]; then  # Some flavor of Linux
 	    pipenv run python3 src/main.py
-    elif [[ "$OSTYPE" == "darwin"*  ]]; then
+    elif [[ "$OSTYPE" == "darwin"*  ]]; then   # MacOS
         pipenv run python3 src/main.py
-    elif [[ "$OSTYPE" == "msys"* ]]; then
+    elif [[ "$OSTYPE" == "msys"* ]]; then	   # Windows via GitBash Terminal
         pipenv run python src/main.py
     else
         echo "Unknown execution environment. Edit build.sh and add your os type to the runmain() method"
