@@ -27,7 +27,7 @@ class RosterApp(object):
 			case 'nt':
 				os.system('cls')
 			case _:
-				_ = call('clear' if os.name == 'posix' else 'cls')
+				os.system('clear')
 		
 	def display_menu(self):
 		"""Display menu."""
@@ -69,6 +69,7 @@ class RosterApp(object):
 		"""Create new roster."""		
 		if __debug__:
 			print('new_roster() method called...')
+			self.clear_screen()
 		
 	def load_roster(self):
 		"""Load roster from file."""
