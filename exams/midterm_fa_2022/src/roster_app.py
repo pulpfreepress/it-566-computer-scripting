@@ -23,7 +23,16 @@ class RosterApp(object):
 		pass
 
 	def clear_screen(self):
-		_ = call('clear' if os.name == 'posix' else 'cls')
+		match os.name:
+			case 'nt':
+				os.system('cls')
+			case 'darwin':
+				os.system('clear')
+			case 'posix':
+				os.system('clear')
+			case _:
+				pass
+		# _ = call('clear' if os.name == 'posix' else 'cls')
 
 
 	def display_menu(self):
