@@ -1,11 +1,16 @@
 """Explicit main execution module."""
-from inventory_app import InventoryApp
+
+from roster_app import RosterApp
+
 
 
 def main():
 	"""Execute when it's the main execution module."""
-	home_inventory_app = InventoryApp()
-	home_inventory_app.start_application()
+	roster_app = RosterApp()
+	roster_app.start_application()
+	
+
+	
 
 
 	
