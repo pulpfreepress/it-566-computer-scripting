@@ -23,7 +23,7 @@ class RosterApp(object):
 		pass
 
 	def clear_screen(self):
-        os.system('clear')
+		os.system('clear')
 
 	def display_menu(self):
 		"""Display menu."""
@@ -59,34 +59,41 @@ class RosterApp(object):
 				self.keep_going = False
 				self.clear_screen()
 			case _:
+				self.clear_screen()
 				print('Invalid Menu Choice!')
 
 	def new_roster(self):
 		"""Create new roster."""
+		self.clear_screen()
 		if __debug__:
 			print('new_roster() method called...')
-			self.clear_screen()
 
 	def load_roster(self):
 		"""Load roster from file."""
+		self.clear_screen()
 		if __debug__:
 			print('load_roster() method called...')
 
 
 	def print_roster(self):
 		"""Print roster."""
+		self.clear_screen()
 		if __debug__:
 			print('print_roster() method called...')
+		
 
 
 	def save_roster(self):
 		"""Save roster to file."""
+		self.clear_screen()
 		if __debug__:
 			print('save_roster() method called...')
+		
 
 
 	def add_members(self):
 		"""Add items to roster."""
+		self.clear_screen()
 		if __debug__:
 			print('print_roster() method called...')
 
