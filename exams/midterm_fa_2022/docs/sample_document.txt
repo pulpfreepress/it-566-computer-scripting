@@ -1,0 +1,5 @@
+Sample Document
+
+Just a placeholder textfile to have something in this folder.
+
+Store project documentation in the docs folder. Also, auto-generated documentation should be stored here as well.
