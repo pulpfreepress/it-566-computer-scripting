@@ -23,12 +23,8 @@ class RosterApp(object):
 		pass
 
 	def clear_screen(self):
-		match os.name:
-			case 'nt':
-				os.system('cls')
-			case _:
-				os.system('clear')
-		
+        os.system('clear')
+
 	def display_menu(self):
 		"""Display menu."""
 		print('\t\t\tTeam Roster Application')
@@ -44,7 +40,7 @@ class RosterApp(object):
 	def process_menu_choice(self):
 		"""Process menu choice and execute corrensponding methods."""
 		self.menu_choice = input('Please enter menu item number: ')
-		if __debug__: 
+		if __debug__:
 			print(f'You entered: {self.menu_choice}')
 		match self.menu_choice:
 			case self.NEW_ROSTER:
@@ -66,28 +62,28 @@ class RosterApp(object):
 				print('Invalid Menu Choice!')
 
 	def new_roster(self):
-		"""Create new roster."""		
+		"""Create new roster."""
 		if __debug__:
 			print('new_roster() method called...')
 			self.clear_screen()
-		
+
 	def load_roster(self):
 		"""Load roster from file."""
 		if __debug__:
 			print('load_roster() method called...')
-		
+
 
 	def print_roster(self):
 		"""Print roster."""
 		if __debug__:
 			print('print_roster() method called...')
-		
+
 
 	def save_roster(self):
 		"""Save roster to file."""
 		if __debug__:
 			print('save_roster() method called...')
-		
+
 
 	def add_members(self):
 		"""Add items to roster."""
