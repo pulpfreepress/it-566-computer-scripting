@@ -1,0 +1,24 @@
+{
+    "type": "Team Roster",
+    "date": "2022-10-24",
+    "sport": "Curling",
+    "country": "USA",
+    "members": [
+        {
+            "name": "Beth Biggsly",
+            "age": 35
+        },
+        {
+            "name": "Emanual Garcia",
+            "age": 22
+        },
+        {
+            "name": "Abeba Ajani",
+            "age": 28
+        },
+        {
+            "name": "Marie Bonnard du Parquet",
+            "age": 20
+        }
+    ]
+}
