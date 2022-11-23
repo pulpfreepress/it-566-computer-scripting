@@ -1,0 +1,11 @@
+# Stray MacOS files
+.DS_Store
+
+# directories
+logs
+
+# Virtual Environments
+.venv
+.pytest_cache
+
+
