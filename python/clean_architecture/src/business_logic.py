@@ -15,7 +15,7 @@ class BusinessLogic(object):
 		try:
 			query_results = self._persistance_wrapper.get_all_inventories()
 		except Exception as e:
-			print(e)
+			print(f'Exception in business logic: {e}')
 
 		return query_results
 
@@ -25,7 +25,7 @@ class BusinessLogic(object):
 		try:
 			query_results = self._persistance_wrapper.get_all_inventories()
 		except Exception as e:
-			print(e)
+			print(f'Exception in business logic: {e}')
 
 		return_results = None
 		match format:
@@ -40,9 +40,18 @@ class BusinessLogic(object):
 			inventory_id = self._persistance_wrapper.create_inventory(name, description, date)
 
 		except Exception as e:
-			print(e)
+			print(f'Exception in business logic: {e}')
 		
 		return inventory_id
+
+	def get_items_for_inventory_id(self, id):
+		query_results = None
+		try:
+			query_results = self._persistance_wrapper.get_items_for_inventory(id)
+		except Exception as e:
+			print(f'Exception in business logic: {e}')
+
+		return query_results
 
 
 	

@@ -11,8 +11,8 @@ SET time_zone = "+00:00";
 USE `home_inventory`;
 
 
-ALTER TABLE items ADD inventories_id int(11) NOT NULL DEFAULT 1;
-ALTER TABLE items ADD CONSTRAINT fk_inventories_id FOREIGN KEY (inventories_id) 
+ALTER TABLE items ADD inventory_id int(11) NOT NULL DEFAULT 1;
+ALTER TABLE items ADD CONSTRAINT fk_inventory_id FOREIGN KEY (inventory_id) 
 REFERENCES inventories(id) ON DELETE CASCADE ON UPDATE CASCADE;
 
 

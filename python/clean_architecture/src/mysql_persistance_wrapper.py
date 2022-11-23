@@ -9,7 +9,8 @@ class MySQLPersistanceWrapper(PersistanceWrapperInterface):
 	def __init__(self):
 		# Constants
 		self.SELECT_ALL_INVENTORIES = 'SELECT id, name, description FROM inventories'
-		self.INSERT = 'INSERT INTO items (item, count) VALUES(%s, %s)'
+		self.INSERT = 'INSERT INTO items (inventory_id, item, count) VALUES(%s, %s, %s)'
+		self.SELECT_ALL_ITEMS_FOR_INVENTORY_ID = 'SELECT id, inventory_id, item, count FROM items WHERE inventory_id = %s'
 		self.DB_CONFIG = {}
 		self.DB_CONFIG['database'] = 'home_inventory'
 		self.DB_CONFIG['user'] = 'home_inventory_user'
@@ -26,12 +27,21 @@ class MySQLPersistanceWrapper(PersistanceWrapperInterface):
 			results = cursor.fetchall()
 
 		except Exception as e:
-			print(e)
+			print(f'Exception in persistance wrapper: {e}')
 		
 		return results
 
-	def get_items_for_inventory(self, inventory_id: int):
-		pass
+	def get_items_for_inventory(self, inventory_id):
+		cursor = None
+		try:
+			cursor = self._db_connection.cursor()
+			cursor.execute(self.SELECT_ALL_ITEMS_FOR_INVENTORY_ID, ([inventory_id]))
+			results = cursor.fetchall()
+
+		except Exception as e:
+			print(f'Exception in persistance wrapper: {e}')
+		
+		return results
 
 	def create_inventory(self, name: str, description: str, date: str):
 		pass
