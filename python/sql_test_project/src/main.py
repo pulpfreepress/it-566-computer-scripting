@@ -8,7 +8,7 @@ def main():
 	"""Execute main program."""
 	#password = getpass('Enter DB Password: ')
 	password = None
-	db_test = SqlTest('localhost', 3306, 'home_inventory', 'home_inventory_user', password)
+	db_test = SqlTest('localhost', 8889, 'home_inventory', 'home_inventory_user', password)
 	item = input("Item name: ")
 	count = input("Item count: ")
 	db_test.insert_item(item, int(count))

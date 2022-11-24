@@ -1,9 +1,9 @@
-"""Implements a MySQL Persistance Wrapper"""
+"""Implements a MySQL Persistence Wrapper"""
 
-from persistance_wrapper_interface import PersistanceWrapperInterface
+from persistence_wrapper_interface import PersistenceWrapperInterface
 from mysql import connector
 
-class MySQLPersistanceWrapper(PersistanceWrapperInterface):
+class MySQLPersistenceWrapper(PersistenceWrapperInterface):
 	"""Implements MySQL Persistance Wrapper"""
 
 	def __init__(self):

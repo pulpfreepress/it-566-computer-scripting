@@ -1,8 +1,8 @@
-"""Specifies persistance wrapper interface methods."""
+"""Specifies persistence wrapper interface methods."""
 
 from abc import ABC, abstractmethod
 
-class PersistanceWrapperInterface(ABC):
+class PersistenceWrapperInterface(ABC):
 	"""Specifies persistance wrapper interface methods."""
 
 	def __init__(self, persistance_type: str):

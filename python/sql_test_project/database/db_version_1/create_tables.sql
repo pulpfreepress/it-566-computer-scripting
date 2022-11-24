@@ -19,7 +19,7 @@ USE `home_inventory`;
 DROP TABLE IF EXISTS `items`;
 CREATE TABLE `items` (
   `id` int(11) NOT NULL,
-  `item` varchar(11) NOT NULL,
+  `item` varchar(100) NOT NULL,
   `count` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
