@@ -54,3 +54,70 @@ pipenv: OK
 
 ## Where To Go From Here
 Not all functionality is implemented. The menu indicates what works and what doesn't. I implemented several swaths through the architecture as a reference. 
+
+## Screenshots
+```
+            Household Inventory Application
+
+		1. New Inventory (Not Implemented)
+		2. List Inventories
+		3. Select Inventory
+		4. List Inventory Items
+		5. Add Items (Not Implemented)
+		6. Exit
+
+Please enter menu item number:
+```
+
+```
++----+----------------+-------------------------------+
+| ID |      Name      |          Description          |
++----+----------------+-------------------------------+
+| 1  | Home Inventory | List of all items in the home |
++----+----------------+-------------------------------+
+
+
+Press any key to continue...
+```
+
+```
+You entered: 3
+select_inventory() method called.
++----+----------------+-------------------------------+
+| ID |      Name      |          Description          |
++----+----------------+-------------------------------+
+| 1  | Home Inventory | List of all items in the home |
++----+----------------+-------------------------------+
+
+
+Select inventory id from list: 1
+```
+
+```
+            Household Inventory Application
+
+		1. New Inventory (Not Implemented)
+		2. List Inventories
+		3. Select Inventory
+		4. List Inventory Items
+		5. Add Items (Not Implemented)
+		6. Exit
+
+Please enter menu item number: 4
+You entered: 4
+list_inventory_items() method called...
++----+--------------+---------------+-------+
+| ID | Inventory ID |      Item     | Count |
++----+--------------+---------------+-------+
+| 1  |      1       |     Truck     |   1   |
+| 2  |      1       |  MacBook Pro  |   1   |
+| 3  |      1       |     Table     |   1   |
+| 4  |      1       |      Car      |   1   |
+| 5  |      1       |     Chair     |   1   |
+| 6  |      1       | China Cabinet |   1   |
+| 7  |      1       |      Sofa     |   1   |
++----+--------------+---------------+-------+
+
+
+Press any key to continue...
+```
