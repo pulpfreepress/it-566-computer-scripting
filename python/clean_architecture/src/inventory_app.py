@@ -4,7 +4,7 @@ from business_logic import BusinessLogic
 from prettytable import PrettyTable
 import os
 
-class InventoryApp():
+class InventoryApp(object):
 	"""Implements household inventory control features."""
 
 	def __init__(self):
