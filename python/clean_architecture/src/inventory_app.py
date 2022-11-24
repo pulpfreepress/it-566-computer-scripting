@@ -66,15 +66,17 @@ class InventoryApp(object):
 
 	def new_inventory(self):
 		"""Create new inventory."""		
+		self.clear_screen()
 		if __debug__:
 			print('new_inventory() method called...')
 		
 
 	def list_inventories(self):
 		"""List inventories."""
+		self.clear_screen()
 		if __debug__:
 			print('list_inventories() method called...')
-			self.clear_screen()
+			
 			self.print_inventory_list(self.get_inventories())
 			input('\n\nPress any key to continue...')
 			
@@ -86,6 +88,7 @@ class InventoryApp(object):
 		
 	def select_inventory(self):
 		"""Selects an existing inventory"""
+		self.clear_screen()
 		if __debug__:
 			print('select_inventory() method called.')
 		self.print_inventory_list(self.get_inventories())
@@ -95,6 +98,7 @@ class InventoryApp(object):
 
 	def list_inventory_items(self):
 		"""List inventory."""
+		self.clear_screen()
 		if __debug__:
 			print('list_inventory_items() method called...')
 		items_list = self.business_logic.get_items_for_inventory_id(self.active_inventory_id)
