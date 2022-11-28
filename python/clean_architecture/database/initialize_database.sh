@@ -10,6 +10,7 @@ d=$(date)
 echo $d
 
 # Create Database Version 1
+echo "Running DB Version 1 Scripts..."
 echo  $d': Dropping database...' | tee -a logs/drop_database.log
 mysql < db_version_1/drop_database.sql 2>&1 | tee -a logs/drop_database.log
 echo $d': Dropping user...' | tee -a logs/drop_user.log
@@ -24,6 +25,8 @@ echo $d': Inserting test data...' | tee -a logs/insert_test_data.log
 mysql < db_version_1/insert_test_data.sql 2>&1 | tee -a logs/insert_test_data.log
 
 # Refactor Database to Version 2
+echo "-------------------------------------------------"
+echo "Running DB Version 2 Scripts... "
 echo  $d': Adding inventories table...' | tee -a logs/v2_create_inventories_table.log
 mysql < db_version_2/create_inventories_table.sql 2>&1 | tee -a logs/v2_create_inventories_table.log
 # Need to create a row in the inventories table before altering the items table

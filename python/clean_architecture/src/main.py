@@ -1,6 +1,6 @@
 """Explicit main execution module."""
 from inventory_app import InventoryApp
-from datetime import date
+#from datetime import date
 
 def main():
 	"""Execute main program."""

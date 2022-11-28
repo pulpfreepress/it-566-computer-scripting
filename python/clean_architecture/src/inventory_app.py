@@ -4,7 +4,7 @@ from business_logic import BusinessLogic
 from prettytable import PrettyTable
 import os
 
-class InventoryApp(object):
+class InventoryApp():
 	"""Implements household inventory control features."""
 
 	def __init__(self):
@@ -23,6 +23,7 @@ class InventoryApp(object):
 		self.active_inventory_id = 0
 
 	def clear_screen(self):
+		"""Clears the screen. It's either Unix-like or Windows."""
 		try:
 			os.system('clear')
 		except Exception:
@@ -69,6 +70,7 @@ class InventoryApp(object):
 		self.clear_screen()
 		if __debug__:
 			print('new_inventory() method called...')
+		input('\n\nThis method is not yet implemented. Press any key to continue: ')
 		
 
 	def list_inventories(self):
@@ -76,12 +78,12 @@ class InventoryApp(object):
 		self.clear_screen()
 		if __debug__:
 			print('list_inventories() method called...')
-			
-			self.print_inventory_list(self.get_inventories())
-			input('\n\nPress any key to continue...')
+		self.print_inventory_list(self._get_inventories())
+		input('\n\nPress any key to continue...')
 			
 
-	def get_inventories(self):
+	def _get_inventories(self):
+		"""Utility method that calls business logic layer to get all inventory records."""
 		return self.business_logic.get_all_inventories()
 
 
@@ -91,13 +93,29 @@ class InventoryApp(object):
 		self.clear_screen()
 		if __debug__:
 			print('select_inventory() method called.')
-		self.print_inventory_list(self.get_inventories())
-		self.active_inventory_id = int(input('\n\nSelect inventory id from list: '))
+
+		inventory_list = None
+		try:
+			inventory_list = self._get_inventories()
+			keep_going = True
+			while keep_going:
+				self.print_inventory_list(inv_list=inventory_list)
+				self.active_inventory_id = int(input('\n\nSelect inventory id from list: '))
+				response = input(f'You entered {str(self.active_inventory_id)}. Is this correct? (y/n) ')
+				if response.capitalize() == 'Y':
+					keep_going = False
+		except Exception as e:
+			print(f'Exception in select_inventory() method: {e}')
+			
+		
+
+		
+		
 		
 
 
 	def list_inventory_items(self):
-		"""List inventory."""
+		"""List inventory items for inventory id contained in self.active_inventory_id field."""
 		self.clear_screen()
 		if __debug__:
 			print('list_inventory_items() method called...')
@@ -110,7 +128,7 @@ class InventoryApp(object):
 		"""Add items to inventory."""
 		if __debug__:
 			print('add_items() method called...')
-		# to do
+		input('\n\vThis method is not yet implemented. Press any key to continue: ')
 
 
 	def start_application(self):
