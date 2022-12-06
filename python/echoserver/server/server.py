@@ -1,3 +1,4 @@
+"""This is the server."""
 import socket
 import threading
 import json
