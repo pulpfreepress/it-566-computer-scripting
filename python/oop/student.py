@@ -1,6 +1,7 @@
 from person import Person
 import json
 
+
 class Student(Person):
 
     def __init__(self, firstName: str, middleName: str, lastName: str, studentId: str, major: str):
@@ -11,10 +12,19 @@ class Student(Person):
         self.major = major
 
     def __str__(self):
-        return super().__str__() + " " + self.student_id \
-        + " " + self.major
+        return self.to_json()
     
-    def toJSON(self):
+    def __repr__(self):
+        return self.__str__()
+    
+    def to_json(self):
         return json.dumps(self, default=lambda o: o.__dict__, 
-            sort_keys=True, indent=4)
+            sort_keys=False, indent=4)
+    
+
+class StudentJsonEncoder(json.JSONEncoder):
+    def default(self, o):
+        if isinstance(o, Student):
+            return o.__dict__
+
     

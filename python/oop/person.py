@@ -1,6 +1,7 @@
 import json
 
-class Person:
+
+class Person():
 
     def __init__(self, firstName: str, middleName: str, lastName: str):
         if not isinstance(firstName, str):
@@ -10,13 +11,24 @@ class Person:
         self.last_name = lastName
 
     def __str__(self):
-        return str(self.first_name) + ' ' + \
-        str(self.middle_name[0]) + '. ' + str(self.last_name)
+        return self.to_json()
     
-    def toJSON(self):
+    def __repr__(self):
+        return self.__str__()
+    
+    def to_json(self):
         return json.dumps(self, default=lambda o: o.__dict__, 
-            sort_keys=True, indent=4)
+            sort_keys=False, indent=4)
     
+    
+    
+    
+
+
+class PersonJsonEncoder(json.JSONEncoder):
+    def default(self, o):
+        if isinstance(o, Person):
+            return o.__dict__
 
     
 
