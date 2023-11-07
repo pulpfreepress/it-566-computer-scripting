@@ -1,9 +1,8 @@
-
+from app import App
 
 class UI:
     def __init__(self):
-        #print("__init__() method called...")
-        pass
+        self.app = App()
 
     def _print_menu(self):
         print("\t\tPeople List Application")
@@ -31,7 +30,12 @@ class UI:
 
 
     def add_person(self):
-        print("add_person() method called...")
+        first_name = input("First Name: ")
+        middle_name = input("Middle Name: ")
+        last_name = input("Last Name: ")
+        self.app.add_person(first_name=first_name, middle_name=middle_name, \
+                            last_name=last_name)
+
 
     def list_people(self):
         print("list_people() method called...")
