@@ -2,7 +2,7 @@
 ```
 Example repository for IT-566: Computer Scripting Techniques 
 Marymount University
-Balston Center, Arlington, VA
+Ballston Center, Arlington, VA
 Fall 2022
 
 ```
